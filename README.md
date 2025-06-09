@@ -1,57 +1,67 @@
-# ds-hw10-git-scm
-Digital Skola Homework ke 10 - Git & Source Code Management
+# ds-hw11-git-advanced
+Digital Skola Homework ke 11 - Git Advanced & Tagging
 
 ## Langkah Pengerjaan dan Penjelasannya
 
-1. **Clone repository dari GitHub**
+1. **Membuat dan berpindah ke branch baru `dev`**
    ```bash
-   git clone git@github.com:mdafaardiansyah/ds-hw10-git-scm.git
+   git checkout -b dev
    ```
-   *Perintah ini digunakan untuk menyalin seluruh isi repository dari GitHub ke komputer lokal Anda.*
+   *Perintah ini membuat branch baru bernama `dev` dan langsung berpindah ke branch tersebut.*
 
-2. **Masuk ke direktori hasil clone**
+2. **Cek branch yang aktif**
    ```bash
-   cd ds-hw10-git-scm
+   git branch
    ```
-   *Perintah ini memindahkan Anda ke folder project yang baru saja di-clone.*
+   *Digunakan untuk melihat daftar branch dan branch mana yang sedang aktif (ditandai dengan `*`).*
 
-3. **Membuat file baru bernama `test1.txt`**
+3. **Membuat file baru di branch `dev`**
    ```bash
-   echo "Ini adalah isi file test1.txt" > test1.txt
+   echo "Ini adalah konten dari branch dev" > file.txt
    ```
-   *Perintah ini membuat file baru bernama `test1.txt` dan mengisinya dengan teks.*
+   *Perintah ini membuat file baru bernama `file.txt` dengan isi tertentu di branch `dev`.*
 
-4. **Mengecek status repository**
+4. **Menambahkan file ke staging area**
    ```bash
-   git status
+   git add file.txt
    ```
-   *Digunakan untuk melihat status perubahan di repository, seperti file baru atau file yang diubah.*
+   *Menambahkan file baru ke staging area agar siap di-commit.*
 
-5. **Menambahkan file baru ke staging area**
+5. **Commit perubahan di branch `dev`**
    ```bash
-   git add .
+   git commit -m "Menambahkan file.txt di branch dev"
    ```
-   *Perintah ini menambahkan semua perubahan (file baru/diubah) ke staging area agar siap di-commit.*
+   *Menyimpan snapshot perubahan ke repository lokal pada branch `dev`.*
 
-6. **Mengecek kembali status repository**
+6. **Kembali ke branch utama (`master`)**
    ```bash
-   git status
+   git checkout master
    ```
-   *Untuk memastikan file sudah masuk ke staging area sebelum commit.*
+   *Berpindah ke branch utama. (Pada beberapa repo, nama branch utama bisa `main` atau `master`)*
 
-7. **Commit perubahan dengan pesan**
+7. **Merge branch `dev` ke `master`**
    ```bash
-   git commit -m "Menambahkan file test1.txt"
+   git merge dev
    ```
-   *Commit digunakan untuk menyimpan snapshot perubahan ke repository lokal. Pesan commit sebaiknya menjelaskan perubahan yang dilakukan.*
+   *Menggabungkan perubahan dari branch `dev` ke branch `master`.*
 
-8. **Push commit ke repository GitHub**
+8. **Push perubahan ke repository remote**
    ```bash
-   git push origin main
+   git push origin master
    ```
-   *Perintah ini mengirimkan commit dari repository lokal ke repository remote (GitHub).*
-   - **origin**: Nama default untuk remote repository (dalam hal ini GitHub).
-   - **main**: Nama branch utama pada repository.
+   *Mengirimkan commit dari branch `master` ke repository remote (GitHub).*
+
+9. **Membuat tag versi (annotated tag)**
+   ```bash
+   git tag -a v1.0 -m "Rilis versi 1.0"
+   ```
+   *Membuat tag versi 1.0 dengan pesan rilis. Tag ini menandai commit tertentu sebagai versi rilis.*
+
+10. **Push tag ke repository remote**
+    ```bash
+    git push origin v1.0
+    ```
+    *Mengirimkan tag `v1.0` ke repository remote agar bisa diakses di GitHub.*
 
 ---
 
